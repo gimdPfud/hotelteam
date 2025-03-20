@@ -8,5 +8,5 @@ public interface HotelService {
     public Page<HotelDTO> list(Pageable pageable);
     public void register(HotelDTO hotelDTO);
     public HotelDTO read(Long hotelNum);
-    public HotelDTO del(Long hotelNum);
+    public Long del(Long hotelNum);
 }
