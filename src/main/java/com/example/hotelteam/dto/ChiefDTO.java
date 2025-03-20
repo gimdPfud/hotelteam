@@ -11,8 +11,8 @@ import lombok.ToString;
 @NoArgsConstructor
 public class ChiefDTO {
 
-    Long chiefNum;
+    private Long chiefNum;
 
-    String chiefame;
+    private String chiefName;
 
 }
