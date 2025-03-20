@@ -25,18 +25,18 @@ public class AdminController {
     //어드민리스트ㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡ 가 필요한가
     //뭐하는?
     //url 정리 나중에 해야 ㅠ
-    @GetMapping("/list")
-    public String adminList(AdminDTO adminDTO, Model model){
-
-        //서비스에서 ChiefDTO 받아옴
-        //뭐로 받아야하는거ㅓㅓㅓㅓㅓㅓㅓㅓㅓㅓㅓㅓㅓ지
-
-        //ChiefDTO 변환된 걸 불러와서 모델을 통해 보여주먄 됨
-        adminService.adminList(adminDTO);
-        model.addAttribute("");
-
-        return "/adminlist";
-    }
+//    @GetMapping("/list")
+//    public String adminList(AdminDTO adminDTO, Model model){
+//
+//        //서비스에서 ChiefDTO 받아옴
+//        //뭐로 받아야하는거ㅓㅓㅓㅓㅓㅓㅓㅓㅓㅓㅓㅓㅓ지
+//
+//        //ChiefDTO 변환된 걸 불러와서 모델을 통해 보여주먄 됨
+//        adminService.adminList(adminDTO);
+//        model.addAttribute("");
+//
+//        return "/adminlist";
+//    }
 
     @GetMapping("/register")
     public String adminRegister(){

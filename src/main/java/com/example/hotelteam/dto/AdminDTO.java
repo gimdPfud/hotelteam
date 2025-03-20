@@ -1,5 +1,6 @@
 package com.example.hotelteam.dto;
 
+import com.example.hotelteam.entity.Chief;
 import jakarta.persistence.Column;
 import jakarta.persistence.JoinColumn;
 import jakarta.persistence.ManyToOne;
@@ -20,6 +21,6 @@ public class AdminDTO {
 
     String adminAddr;
 
-    //private Chief chief;
+    private Chief chief;
 
 }

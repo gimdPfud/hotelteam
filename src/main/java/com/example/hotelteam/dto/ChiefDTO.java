@@ -1,16 +1,18 @@
 package com.example.hotelteam.dto;
 
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.Id;
-import lombok.*;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
+import lombok.ToString;
 
 @Getter
 @Setter
-@NoArgsConstructor
 @ToString
+@NoArgsConstructor
 public class ChiefDTO {
 
-    private Long chiefNum;
-    private String chiefName;
+    Long chiefNum;
+
+    String chiefame;
 
 }
