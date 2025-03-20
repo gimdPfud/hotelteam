@@ -1,9 +1,6 @@
 package com.example.hotelteam.entity;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
+import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
@@ -18,8 +15,13 @@ public class Chief {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    Long chiefNum;
+    @Column(name = "chief_num")
+    private Long chiefNum;
 
-    String chiefame;
+    private String chiefName;
+
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "memberNum")
+    private Member member;
 
 }
