@@ -20,6 +20,12 @@ public class Board {
     private Long boardNum;
     private String boardTitle;
     private String boardContent;
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "hotel_num")
+    private Hotel hotel;
+
+
+
 
 
 
