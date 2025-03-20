@@ -4,6 +4,7 @@ import com.example.hotelteam.dto.BoardDTO;
 import com.example.hotelteam.entity.Board;
 import com.example.hotelteam.repository.BoardRepository;
 import jakarta.transaction.Transactional;
+import jakarta.validation.constraints.Email;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.log4j.Log4j2;
 import org.modelmapper.ModelMapper;
@@ -32,10 +33,13 @@ public class BoardServiceImpl implements BoardService{
     }
 
     @Override
-    public Page<BoardDTO> list(Pageable pageable) {
+    public Page<BoardDTO> boardlist(Pageable pageable) {
         Page<Board> pageList = boardRepository.findAll(pageable);
-        return null;
+        return pageList.map(pl -> modelMapper.map(pl, BoardDTO.class));
+
     }
+
+
 
     @Override
     public BoardDTO read(Long boardNum) {
@@ -48,11 +52,18 @@ public class BoardServiceImpl implements BoardService{
 
     @Override
     public BoardDTO update(BoardDTO boardDTO) {
-        return null;
+        Optional<Board> optionalBoard = boardRepository.findById(boardDTO.getBoardNum());
+
+        Board board = optionalBoard.get();
+        board.setBoardTitle(boardDTO.getBoardTitle());
+        board.setBoardContent(boardDTO.getBoardContent());
+        boardDTO = modelMapper.map(board, BoardDTO.class);
+        return boardDTO;
     }
 
     @Override
     public Long del(Long boardNum) {
-        return 0L;
+        boardRepository.deleteById(boardNum);
+        return boardNum;
     }
 }

@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="ko" xmlns:th="http://www.thymeleaf.org">
+<head>
+  <meta charset="UTF-8">
+  <title>상세보기</title>
+</head>
+<body>
+  <h1>상세보기</h1>
+  글번호 : <span th:text="${boardDTO.boardNum}"></span><br>
+  제목 : <span th:text="${boardDTO.boardTitle}"></span><br>
+  내용 : <span th:text="${boardDTO.boardContent}"></span><br>
+  <a th:href="@{|/board/update/${boardDTO.boardNum}|}">수정</a>
+  <a th:href="@{|/board/del/${boardDTO.boardNum}|}">삭제</a>
+
+  <input hidden readonly name="commContentNum">
+  <input hidden readonly name="commCategory">
+
+
+</body>
+</html>
