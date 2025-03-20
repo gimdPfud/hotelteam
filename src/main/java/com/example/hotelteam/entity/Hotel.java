@@ -23,7 +23,7 @@ public class Hotel {
     @Column(nullable = false)
     private String hotelAddr;
 
-    //@ManyToOne(fetch = FetchType.LAZY)
-    //@JoinColumn(name = "admin_num")
-    //private Admin admin;
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "admin_num")
+    private Admin admin;
 }

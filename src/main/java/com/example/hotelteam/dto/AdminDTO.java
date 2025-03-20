@@ -20,6 +20,6 @@ public class AdminDTO {
 
     String adminAddr;
 
-    private Chief chief;
+    //private Chief chief;
 
 }
