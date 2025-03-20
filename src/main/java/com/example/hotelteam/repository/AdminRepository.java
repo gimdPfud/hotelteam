@@ -5,8 +5,7 @@ import org.springframework.data.jpa.repository.JpaRepository;
 
 public interface AdminRepository extends JpaRepository<Admin, Long> {
 
-    public String findByChiefName(String ChiefName);
-
+    public Admin findByChief_Chiefame(String chiefName);
 
 
 }

@@ -25,8 +25,8 @@ public class Admin {
     @Column(length = 100)
     String adminAddr;
 
-    //@ManyToOne
-    //@JoinColumn(name = "chiefNum")
-    //private Chief chief;
+    @ManyToOne
+    @JoinColumn(name = "chiefNum")
+    private Chief chief;
 
 }
