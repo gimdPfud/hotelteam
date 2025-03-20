@@ -41,7 +41,7 @@ public class HotelController {
     @GetMapping("/read /{hotelNum}")
     public String read(@PathVariable("hotelNum") Long hotelNum, Model model){
         HotelDTO hotelDTO = hotelService.read(hotelNum);
-        model.addAttribute(hotelDTO)
+        model.addAttribute("hotelDTO", hotelDTO);
         return "/hotel/read";
     }
 
