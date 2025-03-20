@@ -4,11 +4,13 @@ import com.example.hotelteam.dto.HotelDTO;
 import com.example.hotelteam.entity.Hotel;
 import com.example.hotelteam.repository.HotelRepository;
 import lombok.RequiredArgsConstructor;
+import lombok.extern.log4j.Log4j2;
 import org.modelmapper.ModelMapper;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 
+@Log4j2
 @Service
 @RequiredArgsConstructor
 public class HotelServiceImpl implements HotelService{
@@ -39,6 +41,7 @@ public class HotelServiceImpl implements HotelService{
 
     @Override
     public Long del(Long hotelNum) {
+        log.info("호텔넘 {}" ,hotelNum);
         hotelRepository.deleteById(hotelNum);
         return hotelNum;
     }

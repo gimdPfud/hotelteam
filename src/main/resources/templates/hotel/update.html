@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="ko">
+<html lang="ko" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
     <title>호텔 정보수정</title>
@@ -7,8 +7,19 @@
 <body>
 <h1>호텔 정보수정</h1>
 
+<!--아름님것과 동일하게 작성한 코드-->
+<!--기존 값을 띄워주는 기능이 없음, 테이블 없음, input hidden 있음-->
+<!--<form action="/hotel/register" method="post">-->
+<!--    호텔 이름 : <input name="hotelName" class="hotelName"><br>-->
+<!--    호텔 주소 : <input name="hotelAddr" class="hotelAddr"><br>-->
+<!--    <button type="submit">수정</button>-->
+<!--    <input hidden readonly name="hotelNum" th:value="${hotelDTO.hotelNum}">-->
+<!--</form>-->
+
+<!--내가 원래 작성한 코드-->
+<!--기존 값을 띄워줌, th:action과 테이블 사용, input hidden 없음-->
 <form th:action="@{|/hotel/update/${hotelDTO.hotelNum}|}" method="post">
-    <a href="/hotel/read/{hotelNum}">돌아가기</a>
+    <a th:href="@{|/hotel/read/${hotelDTO.hotelNum}|}">돌아가기</a>
     <table>
         <thead>
             <th>호텔 이름</th>
@@ -37,7 +48,12 @@
             </tr>
         </tbody>
     </table>
-
 </form>
+
+<form action="/hotel/del/{hotelNum}">
+    <button type="submit">삭제</button>
+    <input hidden readonly name="hotelNum" th:value="${hotelDTO.hotelNum}">
+</form>
+
 </body>
 </html>
