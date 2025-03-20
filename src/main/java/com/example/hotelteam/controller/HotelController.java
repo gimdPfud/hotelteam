@@ -9,6 +9,7 @@ import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
@@ -37,8 +38,10 @@ public class HotelController {
         return "redirect:/hotel/list";
     }
 
-    @GetMapping("/read")
-    public String read(HotelDTO hotelDTO){
+    @GetMapping("/read /{hotelNum}")
+    public String read(@PathVariable("hotelNum") Long hotelNum, Model model){
+        HotelDTO hotelDTO = hotelService.read(hotelNum);
+        model.addAttribute(hotelDTO)
         return "/hotel/read";
     }
 
