@@ -20,10 +20,13 @@ class BoardServiceImplTest {
 
     @Test
     public void register(){
-        BoardDTO boardDTO = new BoardDTO();
-        boardDTO.setBoardTitle("제목");
-        boardDTO.setBoardContent("내용");
-        boardService.register(boardDTO);
+        for (int i=0; i<50; i++){
+            BoardDTO boardDTO = new BoardDTO();
+            boardDTO.setBoardTitle("제목"+i);
+            boardDTO.setBoardContent("내용"+i);
+            boardService.register(boardDTO);
+        }
+
     }
 
 }

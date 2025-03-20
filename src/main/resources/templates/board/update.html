@@ -4,16 +4,18 @@
 >
 <head>
     <meta charset="UTF-8">
-    <title>등록</title>
+    <title>수정</title>
 </head>
 <body>
-    <h1>등록</h1>
+    <h1>수정</h1>
     <form action="/board/register" method="post">
         제목 : <input name="boardTitle" class="boardTitle"><br>
         내용 : <input name="boardContent" class="boardContent"><br>
-        <button type="submit">저장</button>
-
+        <button type="submit">수정</button>
+        <button type="submit">삭제</button>
+        <input hidden readonly name="boardNum" th:value="${boardDTO.boardNum}">
 
     </form>
+
 </body>
 </html>
