@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <title>호텔 상세보기</title>
+</head>
+<body>
+<h1>호텔 상세보기</h1>
+<table>
+    <thead>
+        <th>no.</th>
+        <th>호텔 이름</th>
+        <th>호텔 주소</th>
+        <th>본사</th>
+        <a href="/hotel/list">목록</a>
+    </thead>
+    <tbody>
+    <th:block>
+        <tr>
+            <td th:text="${hotelDTO.hotelNum}"></td>
+            <td th:text="${hotelDTO.hotelName}"></td>
+            <td th:text="${hotelDTO.hotelAddr}"></td>
+            <td th:text="${hotelDTO.admin}"></td>
+            <td>?</td>
+        </tr>
+    </th:block>
+    <a th:href="@{|/hotel/update/${hotelDTO.hotelNum}|}">수정</a>
+    </tbody>
+</table>
+</body>
+</html>

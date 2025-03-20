@@ -26,7 +26,20 @@ public class HotelServiceImpl implements HotelService{
 
     @Override
     public void register(HotelDTO hotelDTO) {
-        Hotel hotel = new Hotel();
+        Hotel hotel = modelMapper.map(hotelDTO, Hotel.class);
         hotelRepository.save(hotel);
+    }
+
+    @Override
+    public HotelDTO read(Long hotelNum) {
+        Hotel hotel = hotelRepository.findById(hotelNum).get();
+        HotelDTO hotelDTO = modelMapper.map(hotel, HotelDTO.class);
+        return hotelDTO;
+    }
+
+    @Override
+    public Long del(Long hotelNum) {
+        hotelRepository.deleteById(hotelNum);
+        return hotelNum;
     }
 }
