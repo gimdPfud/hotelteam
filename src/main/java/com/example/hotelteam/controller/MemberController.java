@@ -50,4 +50,6 @@ public class MemberController {
         model.addAttribute("memberList", memberList);
         return "member/permission";
     }
+
+
 }
