@@ -21,4 +21,5 @@ public interface StoreService {
     public List<StoreDTO> listStore (String storeName);
     public List<StoreDTO> listStore (Long hotelNum);
     public List<StoreDTO> listStore (Long hotelNum, String storeStatus);
+    public List<StoreDTO> listStore ();
 }

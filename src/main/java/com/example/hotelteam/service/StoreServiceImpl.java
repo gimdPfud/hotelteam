@@ -100,4 +100,17 @@ public class StoreServiceImpl implements StoreService{
         }
         return storeDTOList;
     }
+
+    @Override
+    public List<StoreDTO> listStore() {
+        List<Store> storeList = storeRepository.findAll();
+        List<StoreDTO> storeDTOList = new ArrayList<>();
+        if(!storeList.isEmpty()){
+            for(Store store : storeList){
+                StoreDTO storeDTO = modelMapper.map(store, StoreDTO.class);
+                storeDTOList.add(storeDTO);
+            }
+        }
+        return storeDTOList;
+    }
 }

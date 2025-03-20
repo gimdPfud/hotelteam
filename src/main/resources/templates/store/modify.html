@@ -1,10 +1,25 @@
 <!DOCTYPE html>
-<html lang="ko">
+<html lang="ko"
+      xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
     <title>가맹직영점 수정</title>
 </head>
 <body>
 <h1>가맹직영점 수정</h1>
+<form action="/store/modify" method="post">
+    <input th:value="${storeDTO.storeNum}" readonly hidden></input>
+    <select name="storeStatus">
+        <option value="affi">가맹</option>
+        <option value="direc">직영</option>
+    </select>
+    가게 브랜드 : <input th:value="${storeDTO.storeBrand}"></input><br>
+    가게명 : <input th:value="${storeDTO.storeName}"></input><br>
+    담당자 이름 : <input th:value="${storeDTO.storeManagerName}"></input><br>
+    담당자 연락처 : <input th:value="${storeDTO.storeManagerContact}"></input><br>
+    호텔번호 : <input th:value="${storeDTO.hotelNum}"></input><br>
+    <button>수정</button>
+</form>
+<a th:href="@{/store/delete(storeNum=${storeDTO.storeNum})}">삭제</a>
 </body>
 </html>
