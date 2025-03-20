@@ -35,16 +35,17 @@ public class StoreServiceImpl implements StoreService{
     @Override
     public Long modifyStore(StoreDTO storeDTO) {
         //수정 하기 전 수정하려는 대상이 있는지 확인.
-        // (안해도 되나?? 이유 : 이미 컨트롤러에서 데이터 가져온걸 고쳐서 넘기는건데??)
         Store store = storeRepository.findById(storeDTO.getStoreNum())
                 .orElseThrow(EntityNotFoundException::new);
         if(store!=null){//수정하려는 대상이 있다면
-            //저장함. 근데 이미 있는 pk면 알아서 update 해준다 함...
-            store = storeRepository.save(modelMapper.map(storeDTO, Store.class));
+            //-> 바꿀 값만 set
+            store.setStoreManagerName(storeDTO.getStoreManagerName());
+            store.setStoreManagerContact(storeDTO.getStoreManagerContact());
+            store.setStoreStatus(storeDTO.getStoreStatus());
             return store.getStoreNum();
         }
         else{//수정하려는 대상이 없다면
-            return 0L;
+            return null;
         }
     }
 
