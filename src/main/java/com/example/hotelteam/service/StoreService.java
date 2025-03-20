@@ -18,7 +18,7 @@ public interface StoreService {
     public StoreDTO detailStore (Long storeNum);
 
     //가맹직영점 목록 보기
-    public List<StoreDTO> listStore (Long hotelNum);
     public List<StoreDTO> listStore (String storeName);
+    public List<StoreDTO> listStore (Long hotelNum);
     public List<StoreDTO> listStore (Long hotelNum, String storeStatus);
 }
