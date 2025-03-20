@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <title>호텔 정보수정</title>
+</head>
+<body>
+<h1>호텔 정보수정</h1>
+
+<form th:action="@{|/hotel/update/${hotelDTO.hotelNum}|}" method="post">
+    <a href="/hotel/read/{hotelNum}">돌아가기</a>
+    <table>
+        <thead>
+            <th>호텔 이름</th>
+            <th>호텔 주소</th>
+            <th>본사</th>
+        </thead>
+        <tbody>
+            <tr>
+                <td>
+                    <!--호텔 이름-->
+                    <input type="text" th:value="${hotelDTO.hotelName}" name="hotelName" required>
+                </td>
+                <td>
+                    <!--호텔 주소-->
+                    <input type="text" th:value="${hotelDTO.hotelAddr}" name="hotelAddr" required>
+                </td>
+                <td>
+                    <!--호텔이 속한 본사-->
+                    <!--나중에 input이 아니라 본사List로 해서
+                    선택할수있도록 변경할예정-->
+                    <input type="text">
+                </td>
+                <td>
+                    <button>저장</button>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+
+</form>
+</body>
+</html>

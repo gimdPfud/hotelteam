@@ -36,4 +36,10 @@ public class HotelServiceImpl implements HotelService{
         HotelDTO hotelDTO = modelMapper.map(hotel, HotelDTO.class);
         return hotelDTO;
     }
+
+    @Override
+    public HotelDTO del(Long hotelNum) {
+        hotelRepository.deleteById(hotelNum);
+        return null;
+    }
 }

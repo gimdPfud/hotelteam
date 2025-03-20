@@ -38,7 +38,20 @@ public class HotelController {
         return "redirect:/hotel/list";
     }
 
-    @GetMapping("/read /{hotelNum}")
+    @GetMapping("/update/{hotelNum}")
+    public String update(@PathVariable("hotelNum") Long hotelNum, Model model){
+        HotelDTO hotelDTO = hotelService.read(hotelNum);
+        model.addAttribute("hotelDTO", hotelDTO);
+        return "/hotel/update";
+    }
+
+    @PostMapping("/update/{hotelNum}")
+    public String updatePost(@PathVariable("hotelNum")Long hotelNum, HotelDTO hotelDTO){
+        hotelService.register(hotelDTO);
+        return "redirect:/hotel/read/{hotelNum}";
+    }
+
+    @GetMapping("/read/{hotelNum}")
     public String read(@PathVariable("hotelNum") Long hotelNum, Model model){
         HotelDTO hotelDTO = hotelService.read(hotelNum);
         model.addAttribute("hotelDTO", hotelDTO);
