@@ -47,6 +47,7 @@ public class StoreController {
         log.info("목록 진입");
         List<StoreDTO> storeDTOList= storeService.listStore(hotelNum);
         model.addAttribute("storeDTOList", storeDTOList);
+        model.addAttribute("hotelNum", hotelNum);
         return "store/list";
     }
 
