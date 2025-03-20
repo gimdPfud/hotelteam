@@ -1,11 +1,31 @@
 <!DOCTYPE html>
-<html lang="ko">
+<html lang="ko" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
     <title>호텔 목록보기</title>
 </head>
 <body>
 <h1>호텔 목록보기</h1>
-
+<form>
+    <a href="/hotel/register">호텔 추가하기</a>
+    <table>
+        <thead>
+            <th>no.</th>
+            <th>호텔 이름</th>
+            <th>호텔 주소</th>
+            <th>본사</th>
+        </thead>
+        <tbody>
+            <th:block th:each="hotelDTO: ${hotelDTOPage}">
+                <tr>
+                    <td><a th:text="${hotelDTO.hotelNum}"></a></td>
+                    <td><a th:href="@{|/hotel/read/${hotelDTO.hotelNum}|}" th:text="${hotelDTO.hotelName}"></a></td>
+                    <td><a th:text="${hotelDTO.hotelAddr}"></a></td>
+                    <td><a th:text="${hotelDTO.admin}"></a></td>
+                </tr>
+            </th:block>
+        </tbody>
+    </table>
+</form>
 </body>
 </html>

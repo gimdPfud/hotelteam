@@ -2,7 +2,7 @@ package com.example.hotelteam.service;
 
 public interface StoreService {
     //가맹직영점 등록
-    public Long register(StoreDTO storeDTO);
+    //public Long register(StoreDTO storeDTO);
 
     //가맹직영점 수정(담당자 정보 수정?)
 
