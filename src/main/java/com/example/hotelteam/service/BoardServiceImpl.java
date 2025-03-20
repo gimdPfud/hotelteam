@@ -34,6 +34,7 @@ public class BoardServiceImpl implements BoardService{
 
     @Override
     public Page<BoardDTO> boardlist(Pageable pageable) {
+
         Page<Board> pageList = boardRepository.findAll(pageable);
         return pageList.map(pl -> modelMapper.map(pl, BoardDTO.class));
 
