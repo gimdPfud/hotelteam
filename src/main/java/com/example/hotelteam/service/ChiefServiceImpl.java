@@ -14,6 +14,7 @@ import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 
 import java.security.Principal;
+import java.util.ArrayList;
 import java.util.List;
 
 @ToString
@@ -27,27 +28,35 @@ public class ChiefServiceImpl implements ChiefService {
     private final ChiefRepository chiefRepository;
 
 
-    public Page<ChiefDTO> getCheifList(Principal principal, Pageable pageable) {
-        Page<Chief> chiefList = chiefRepository.findAll(pageable);
-        Page<ChiefDTO> chiefDTOList = chiefList.map(chList->modelMapper.map(chList,ChiefDTO.class));
+    public List<ChiefDTO> getChiefList(Principal principal, Pageable pageable) {
+//        Page<Chief> pagelist = chiefRepository.findAll(pageable);
+//        Page<ChiefDTO> pageDTOList = pagelist.map(chief -> modelMapper.map(chief, ChiefDTO.class));
+
+                String loggedInUserEmail = principal.getName();
+        Member loggedInUser = memberRepository.findByMemberEmail(loggedInUserEmail).get();
+        List<Chief> chiefList = chiefRepository.findByMember_MemberNum(loggedInUser.getMemberNum());
+        List<ChiefDTO> chiefDTOList = new ArrayList<>();
+         for (Chief chief : chiefList) {
+             chiefDTOList.add(modelMapper.map(chief, ChiefDTO.class));
+         }
+//
         return chiefDTOList;
     }
 
-
-        public void addChief(ChiefDTO chiefDTO, Principal principal) {
+    public void addChief(ChiefDTO chiefDTO, Principal principal) {
         Chief chieft = modelMapper.map(chiefDTO, Chief.class);
         chiefRepository.save(chieft);
 
     }
 
     public void updateChief(ChiefDTO chiefDTO) {
-            Chief chief = modelMapper.map(chiefDTO, Chief.class);
-            chiefRepository.save(chief);
+        Chief chief = modelMapper.map(chiefDTO, Chief.class);
+        chiefRepository.save(chief);
     }
 
     public void deleteChief(Long chiefNum) {
-            chiefRepository.deleteById(chiefNum);
+        chiefRepository.deleteById(chiefNum);
     }
-
-
 }
+
+

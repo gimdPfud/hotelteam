@@ -1,5 +1,6 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en"
+      xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
     <title>Super ChiefView</title>
@@ -10,20 +11,11 @@
 <body>
 
 <div class="col">
-    <h2>Name님 안녕하세요. 오늘도 죽어라 일을 해봅시다.</h2>
+    <h3 th:text="${username}"> </h3>
 
-    <h3> </h3>
 
-    <select style="width:500px">
-        <option value="">히히총판</option>
-        <option value="">헤헤총판</option>
-        <option value="">호호총판</option>
-    </select><br>
-
-    <div class="col">
-        <div>(총판 선택시 나오게 할 화면)</div>
-        <div>총판명 : </div>
-        <div>등록된 호텔 : </div>
+    <div th:each="chList : ${chiefList}" class="col">
+        총판명 : <div th:text = "${chList.chiefName}"> </div>
         <a href="#">해당 호텔 관리로 들어가기</a>
     </div>
 
@@ -32,7 +24,7 @@
 
 
 
-    <a href="#" class="btn btn-dark">총판 등록</a>
+    <a href="chief/adddistributor" class="btn btn-dark">총판 등록</a>
     <a href="#" class="btn btn-dark">총판 삭제</a>
 </div>
 

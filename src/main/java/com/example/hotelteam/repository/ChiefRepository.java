@@ -8,11 +8,10 @@ import java.util.List;
 
 public interface ChiefRepository extends JpaRepository<Chief, Long> {
 
-//    List<Chief> findByMemberNum(Long memberNum);
+    List<Chief> findByMember_MemberNum(Long memberNum);
 
-
-//    @Query("SELECT c FROM Chief c JOIN FETCH c.member WHERE c.member.memberEmail = :memberEmail")
-//    List<Chief> findByMemberEmail(String memberEmail);
+    @Query("SELECT c FROM Chief c JOIN FETCH c.member WHERE c.member.memberEmail = :memberEmail")
+    List<Chief> findByMemberEmail(String memberEmail);
 
 
 }

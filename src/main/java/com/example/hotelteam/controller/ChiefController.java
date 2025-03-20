@@ -16,6 +16,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import java.security.Principal;
+import java.util.List;
 
 @Controller
 @RequiredArgsConstructor
@@ -26,9 +27,7 @@ public class ChiefController {
     private final ChiefService chiefService;
     @GetMapping("/view")
     public String chiefView(Principal principal, Pageable pageable, Model model) {
-
-        Page<ChiefDTO> chiefDTOList = chiefService.getCheifList(principal, pageable);
-
+        List<ChiefDTO> chiefDTOList = chiefService.getChiefList(principal, pageable);
         model.addAttribute("chiefList", chiefDTOList);
         return "chief/view";
     }
