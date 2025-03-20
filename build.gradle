@@ -41,6 +41,9 @@ dependencies {
     /*시큐리티*/
     implementation "org.springframework.security:spring-security-web"
     implementation "org.springframework.security:spring-security-config"
+    testCompileOnly 'org.projectlombok:lombok'
+    testAnnotationProcessor 'org.projectlombok:lombok'
+
 }
 
 tasks.named('test') {
