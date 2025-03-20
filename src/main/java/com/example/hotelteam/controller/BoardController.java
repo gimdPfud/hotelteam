@@ -64,7 +64,7 @@ public class BoardController {
         return "board/update";
     }
     @GetMapping("/del/{boardNum}")
-    public String delPost (BoardDTO boardDTO){
+    public String del (BoardDTO boardDTO){
         log.info("삭제  : " +boardDTO);
         boardService.del(boardDTO.getBoardNum());
         return "redirect:/board/list";
