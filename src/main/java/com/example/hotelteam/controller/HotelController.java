@@ -60,9 +60,9 @@ public class HotelController {
     }
 
     @GetMapping("/del/{hotelNum}")
-    public String del(@PathVariable("hotelNum") HotelDTO hotelDTO){
+    public String del(HotelDTO hotelDTO){
         hotelService.del(hotelDTO.getHotelNum());
-        return "/hotel/list";
+        return "redirect:/hotel/list";
     }
 
 
