@@ -1,10 +1,21 @@
 <!DOCTYPE html>
-<html lang="ko">
+<html lang="ko"
+      xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
     <title>가맹직영점 상세</title>
 </head>
 <body>
 <h1>가맹직영점 상세</h1>
+상점 번호 : <span th:text="${storeDTO.storeNum}"></span><br>
+<span th:text="${storeDTO.storeStatus}=='affi'?'가맹':'직영'"></span>
+브랜드 이름 : <span th:text="${storeDTO.storeBrand}"></span><br>
+<span th:text="${storeDTO.storeStatus}=='affi'?'가맹':'직영'"></span>
+상세 이름 : <span th:text="${storeDTO.storeName}"></span><br>
+담당자 이름 : <span th:text="${storeDTO.storeManagerName}"></span><br>
+담당자 연락처 : <span th:text="${storeDTO.storeManagerContact}"></span><br>
+호텔 번호 : <span th:text="${storeDTO.hotelNum}"></span><br>
+
+<a th:href="@{/store/modify(storeNum=${storeDTO.getStoreNum()})}">수정</a>
 </body>
 </html>

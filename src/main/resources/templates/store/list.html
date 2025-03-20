@@ -1,10 +1,23 @@
 <!DOCTYPE html>
-<html lang="ko">
+<html lang="ko"
+      xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
     <title>가맹직영점 목록</title>
 </head>
 <body>
 <h1>가맹직영점 목록</h1>
+
+<span>#</span>
+<span>가게명</span>
+<span>호텔번호</span>
+<br>
+<th:block th:each="storeDTO : ${storeDTOList}">
+    <span th:text="${storeDTO.getStoreNum()}"></span>
+    <a th:href="@{/store/read(storeNum=${storeDTO.storeNum})}">
+        <span th:text="${storeDTO.getStoreName()}"></span></a>
+    <span th:text="${storeDTO.getHotelNum()}"></span>
+    <br>
+</th:block>
 </body>
 </html>

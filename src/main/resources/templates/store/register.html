@@ -1,10 +1,29 @@
 <!DOCTYPE html>
-<html lang="ko">
+<html lang="ko"
+      xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
     <title>가맹직영점 등록</title>
 </head>
 <body>
 <h1>가맹직영점 등록</h1>
+<script th:inline="javascript">
+    let msg = [[${msg}]]
+    if(msg){
+        alert(msg)
+    }
+</script>
+<form action="/store/register" method="post">
+    <select name="storeStatus">
+        <option value="affi">가맹</option>
+        <option value="direc">직영</option>
+    </select>
+    가게 브랜드 : <input name="storeBrand" placeholder="우리식당"><br>
+    가게명 : <input name="storeName" placeholder="우리식당 역곡점"><br>
+    담당자 이름 : <input name="storeManagerName" placeholder="홍길동"><br>
+    담당자 연락처 : <input name="storeManagerContact" placeholder="01012345678"><br>
+    호텔번호 : <input type="number" min="1" name="hotelNum"><br>
+    <button>등록</button>
+</form>
 </body>
 </html>
