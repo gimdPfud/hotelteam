@@ -67,7 +67,7 @@ public class BoardController {
     public String del (BoardDTO boardDTO){
         log.info("삭제  : " +boardDTO);
         boardService.del(boardDTO.getBoardNum());
-        return "redirect:/board/list";
+        return "redirect:/board/list";//
     }
 
 }
