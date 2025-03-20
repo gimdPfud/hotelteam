@@ -38,8 +38,8 @@ public class HotelServiceImpl implements HotelService{
     }
 
     @Override
-    public HotelDTO del(Long hotelNum) {
+    public Long del(Long hotelNum) {
         hotelRepository.deleteById(hotelNum);
-        return null;
+        return hotelNum;
     }
 }

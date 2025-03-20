@@ -2,6 +2,7 @@ package com.example.hotelteam.controller;
 
 import com.example.hotelteam.dto.HotelDTO;
 import com.example.hotelteam.service.HotelService;
+import lombok.Getter;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.log4j.Log4j2;
 import org.springframework.data.domain.Page;
@@ -56,6 +57,12 @@ public class HotelController {
         HotelDTO hotelDTO = hotelService.read(hotelNum);
         model.addAttribute("hotelDTO", hotelDTO);
         return "/hotel/read";
+    }
+
+    @GetMapping("/del/{hotelNum}")
+    public String del(@PathVariable("hotelNum") HotelDTO hotelDTO){
+        hotelService.del(hotelDTO.getHotelNum());
+        return "/hotel/list";
     }
 
 
